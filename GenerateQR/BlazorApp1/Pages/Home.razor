@@ -1,0 +1,16 @@
+﻿@page "/"
+
+<PageTitle>Home</PageTitle>
+
+<h1>Hello, world!</h1>
+<button @onclick="@(e=>OnClick())">QR generate</button>
+<img src="@(string.Format(" data:image /svg+xml;base64,{0}", _imgArrr))" />
+
+@code{
+    QRGenerateClass _qr = new QRGenerateClass();
+    byte[] _imgArrr;
+
+    void OnClick(){
+       _imgArrr = _qr.GenerateQRCode("afsdasdfasdfasdfsd");
+    }
+}
